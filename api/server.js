@@ -9,6 +9,10 @@ var healthy = true;
 // App
 const app = express();
 
+var rules =[
+ {usecase:"usecase1",cmd:"oc get dc --all-namespaces=true | grep {name} | wc -l | awk '{print $1}' | tr -d '\n'",value:2},
+ {usecase:"usecase1",cmd:"oc get dc --all-namespaces=true | grep {name} | wc -l | awk '{print $1}' | tr -d '\n'",value:2}
+]
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -24,13 +28,21 @@ app.get('/getuserscore', function(req, res) {
     child = exec("oc get users -o json  | jq -r '.items[].metadata.name' | awk '{print $1}'| jq -R . | jq -s . | jq 'to_entries | map({name:.value, index:.key})'", function(error, stdout, stderr) {
         stdout = JSON.parse(stdout);
         async.each(stdout, function(item, cb) {
-            var cmd = "oc get dc --all-namespaces=true | grep " + item.name + " | wc -l | awk '{print $1}' | tr -d '\n'";
-            exec(cmd, function(err, out, stderr) {
-                if (undefined == item['score'])
-                    item['score'] = 0;
-                item['score'] += parseInt(out);
+            if (undefined == item['score'])
+                        item['score'] = 0;
+
+            async.each(rules,function(rule,cb1){
+                console.log(rule);
+                var cmd = rule.cmd.replace('{name}',item.name);
+                exec(cmd, function(err, out, stderr) {
+                    item['score'] += (parseInt(out)*rule.value);
+                    cb1();
+                });
+            },function(err) {
                 cb();
             });
+
+
         }, function(err) {
             res.json(stdout);
         });
