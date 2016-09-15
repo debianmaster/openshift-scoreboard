@@ -4,7 +4,7 @@ var async = require('async');
 var exec = require('child_process').exec;
 var child;
 // Constants
-const PORT = 8082;
+const PORT = 8080;
 var healthy = true;
 // App
 const app = express();
