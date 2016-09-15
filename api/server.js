@@ -11,8 +11,9 @@ const app = express();
 
 var rules =[
  {usecase:"usecase1",cmd:"oc get dc --all-namespaces=true | grep {name} | wc -l | awk '{print $1}' | tr -d '\n'",value:2},
- {usecase:"usecase1",cmd:"oc get dc --all-namespaces=true | grep {name} | wc -l | awk '{print $1}' | tr -d '\n'",value:2}
-]
+  {usecase:"usecase1",cmd:"oc get pods --all-namespaces=true -o json | jq -r '.items[] | select(.status.phase==\"Running\") | .metadata.name' | grep {name} |  wc -l | awk '{print $1}' | tr -d '\n'",value:2}
+
+];
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -24,6 +25,15 @@ app.get('/', function(req, res) {
     res.send('Hello world v1 ' + os.hostname() + '\n');
 });
 
+function compare(a,b) {
+  if (a.score < b.score)
+    return 1;
+  if (a.score > b.score)
+    return -1;
+  return 0;
+}
+
+
 app.get('/getuserscore', function(req, res) {
     child = exec("oc get users -o json  | jq -r '.items[].metadata.name' | awk '{print $1}'| jq -R . | jq -s . | jq 'to_entries | map({name:.value, index:.key})'", function(error, stdout, stderr) {
         stdout = JSON.parse(stdout);
@@ -32,7 +42,7 @@ app.get('/getuserscore', function(req, res) {
                         item['score'] = 0;
 
             async.each(rules,function(rule,cb1){
-                console.log(rule);
+                //console.log(rule);
                 var cmd = rule.cmd.replace('{name}',item.name);
                 exec(cmd, function(err, out, stderr) {
                     item['score'] += (parseInt(out)*rule.value);
@@ -44,6 +54,7 @@ app.get('/getuserscore', function(req, res) {
 
 
         }, function(err) {
+            stdout.sort(compare);            
             res.json(stdout);
         });
 
