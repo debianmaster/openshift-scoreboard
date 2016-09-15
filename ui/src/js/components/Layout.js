@@ -14,7 +14,7 @@ export default class Layout extends React.Component {
     };
     var that = this;
     setInterval(function(){
-      axios.get("http://localhost:8082/getuserscore")
+      axios.get("http://"+process.env.api || ("localhost:8082")+"/getuserscore")
         .then((response) => {
           console.log(response.data); 
           that.setState({products:response.data});
