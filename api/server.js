@@ -11,7 +11,7 @@ const app = express();
 
 var rules =[
  {usecase:"usecase1",cmd:"oc get dc --all-namespaces=true | grep {name} | wc -l | awk '{print $1}' | tr -d '\n'",value:2},
- {usecase:"usecase1",cmd:"oc get dc --all-namespaces=true | grep {name} | wc -l | awk '{print $1}' | tr -d '\n'",value:2}
+ {usecase:"usecase1",cmd:"oc get pods --all-namespaces=true -o json | jq -r '.items[] | select(.status.phase==\"Running\") | .metadata.name' | grep cjonagam |  wc -l | awk '{print $1}' | tr -d '\n'",value:2}
 ]
 
 app.use(function(req, res, next) {
