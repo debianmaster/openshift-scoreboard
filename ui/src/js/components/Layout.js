@@ -34,7 +34,7 @@ export default class Layout extends React.Component {
   render() {
     return (
       <BootstrapTable data={this.state.products} striped={true} hover={true}>
-        <TableHeaderColumn isKey={true} dataField="name">UserId</TableHeaderColumn>
+        <TableHeaderColumn isKey={true} dataField="name">Participant</TableHeaderColumn>
         <TableHeaderColumn  dataField="score">Score</TableHeaderColumn>
       </BootstrapTable>
     );
