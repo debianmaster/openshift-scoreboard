@@ -24,14 +24,6 @@ app.get('/', function(req, res) {
     res.send('Hello world v1 ' + os.hostname() + '\n');
 });
 
-function compare(a,b) {
-  if (a.score < b.score)
-    return 1;
-  if (a.score > b.score)
-    return -1;
-  return 0;
-}
-
 
 app.get('/getuserscore', function(req, res) {
     child = exec("oc get users -o json  | jq -r '.items[].metadata.name' | awk '{print $1}'| jq -R . | jq -s . | jq 'to_entries | map({name:.value, index:.key})'", function(error, stdout, stderr) {
@@ -53,7 +45,13 @@ app.get('/getuserscore', function(req, res) {
 
 
         }, function(err) {
-            stdout.sort(compare);            
+            stdout.sort(function(a,b) {
+              if (a.score < b.score)
+                return 1;
+              if (a.score > b.score)
+                return -1;
+              return 0;
+            });            
             res.json(stdout);
         });
 
