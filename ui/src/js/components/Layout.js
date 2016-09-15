@@ -4,15 +4,11 @@ import Footer from "./Footer";
 import Header from "./Header";
 import axios from "axios";
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';  // in ECMAScript 6
-// or
-//var ReactBsTable = require("react-bootstrap-table");
-//var BootstrapTable = ReactBsTable.BootstrapTable;
-//var TableHeaderColumn = ReactBsTable.TableHeaderColumn;
+
 
 export default class Layout extends React.Component {
   constructor() {
     super();
-
     this.state = {
       products:[]
     };
@@ -24,7 +20,6 @@ export default class Layout extends React.Component {
           that.setState({products:response.data});
         })
         .catch((err) => {
-          
         })
     },3000);
   }
