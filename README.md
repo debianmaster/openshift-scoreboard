@@ -22,5 +22,6 @@ oc get projects | grep mycliproject | awk '{gsub("mycliproject-","",$1);print $1
 ```
 
 ```sh
+oc rsync ./ui/ ui-2-8rvan:/opt/app-root/src/. --watch  --no-perms=true
 oc rsync ./api/ api-1-hry9u:/opt/app-root/src/. --watch --no-perms=true
 ```
