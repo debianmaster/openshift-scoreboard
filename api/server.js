@@ -1,72 +1,56 @@
-var express = require('express');
+var express = require('express')
+    ,cors = require('cors')
+    ,app = express();
 var os = require("os");
 var async = require('async');
-var exec = require('child_process').exec;
+var axios = require('axios');
+var http = require('http');
 var child;
 const PORT = 8080;
 var healthy = true;
 
-// App
-const app = express();
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'; 
+axios.defaults.baseURL = 'https://'+process.env.base_url;
+axios.defaults.responseType = 'json';
+axios.defaults.headers.common['Authorization'] = "Bearer "+ process.env.token;
 
-var rules =[
- {usecase:"usecase1",cmd:"oc get dc --all-namespaces=true | grep {name} | wc -l | awk '{print $1}' | tr -d '\n'",value:1},
-  {usecase:"usecase1",cmd:"oc get pods --all-namespaces=true -o json | jq -r '.items[] | select(.status.phase==\"Running\") | .metadata.name' | grep {name} |  wc -l | awk '{print $1}' | tr -d '\n'",value:2}
+console.log(axios.defaults.baseURL);
+
+var labs =[
+ {usecase:"lab1",url:"http://welcome-mycliproject-{{username}}."+process.env.base_url,value:1}
 ];
 
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
+app.use(cors());
 
 app.get('/', function(req, res) {
-    res.send('Hello world v51 ' + os.hostname() + '\n');
+    res.send('');
 });
 
 
 app.get('/getuserscore', function(req, res) {
-    child = exec("oc get users -o json  | jq -r '.items[].metadata.name' | awk '{print $1}'| jq -R . | jq -s . | jq 'to_entries | map({name:.value, index:.key})'", function(error, stdout, stderr) {
-        stdout = JSON.parse(stdout);
-        async.each(stdout, function(item, cb) {
-            if (undefined == item['score'])
-                        item['score'] = 0;
-
-            async.each(rules,function(rule,cb1){
-                //console.log(rule);
-                var cmd = rule.cmd.replace('{name}',item.name);
-                exec(cmd, function(err, out, stderr) {
-                    item['score'] += (parseInt(out)*rule.value);
-                    cb1();
-                });
-            },function(err) {
-                cb();
-            });
-
-
-        }, function(err) {
-            stdout.sort(function(a,b) {
-              if (a.score < b.score)
-                return 1;
-              if (a.score > b.score)
-                return -1;
-              return 0;
-            });            
-            res.json(stdout);
-        });
-
+    axios.get("/oapi/v1/identities")
+        .then((response) => {
+           async.each(response.data.items, function(item, cb) {
+               item.score=0;
+               async.each(labs,function(itm,cb2){
+                    http.get(itm.url.replace('{{username}}',item.providerUserName), (resp) => {
+                        if(resp.statusCode==200)
+                        item.score+=itm.value;
+                        cb2();
+                    }).on('error', (e) => {
+                        console.log(e);
+                        cb2();
+                    });
+               },function(){
+                   cb();
+               });
+           },function(){
+               res.json(response.data.items);
+           });
+        })
+        .catch((err) => {
+           res.json({error:err}); 
     });
-});
-
-app.get('/getusers', function(req, res) {
-    child = exec("oc get users -o json  | jq -r '.items[].metadata.name' | awk '{print $1}'| jq -R . | jq -s . | jq 'to_entries | map({name:.value, index:.key})'",
-        function(error, stdout, stderr) {
-            if (error !== null) {
-                console.log('exec error: ' + error);
-            }
-
-            res.json(JSON.parse(stdout));
-        });
 });
 
 app.get('/healthz', function(req, res) {
