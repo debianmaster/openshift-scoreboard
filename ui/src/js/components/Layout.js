@@ -4,9 +4,8 @@ import Footer from "./Footer";
 import Header from "./Header";
 import axios from "axios";
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';  // in ECMAScript 6
-axios.defaults.baseURL = 'http://localhost:8080';
+axios.defaults.baseURL = location.href+'api';
 axios.defaults.responseType= 'json';
-axios.defaults.headers.common['Authorization'] = "Bearer QN_9mF-sgCvT2DaMQVfytF3q40_LZMaXHERvmWo4WXQ";
 
 export default class Layout extends React.Component {
   constructor() {
@@ -35,6 +34,3 @@ export default class Layout extends React.Component {
     );
   }
 }
-
-//welcome.UserName.apps.osecloud.com
-//each successfull hit earns 1c$

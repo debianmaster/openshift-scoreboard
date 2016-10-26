@@ -10,13 +10,14 @@ const PORT = 8080;
 var healthy = true;
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'; 
-axios.defaults.baseURL = 'https://'+process.env.base_url;
+axios.defaults.baseURL = 'https://'+process.env.base_url+":8443";
 axios.defaults.responseType = 'json';
 axios.defaults.headers.common['Authorization'] = "Bearer "+ process.env.token;
 console.log(axios.defaults.baseURL);
 
 var labs =[
- {usecase:"lab1",url:"http://welcome-mycliproject-{{username}}."+process.env.base_url,value:1}
+ {usecase:"lab1",url:"http://welcome-mycliproject-{{username}}."+process.env.base_url,value:1},
+ {usecase:"lab2",url:"http://welcome.mycliproject-{{username}}.svc.cluster.local:8080",value:2}
 ];
 
 app.use(cors());

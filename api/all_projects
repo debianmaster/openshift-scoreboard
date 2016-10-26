@@ -1,0 +1,161 @@
+NAMESPACE                       NAME                             DISPLAY NAME   STATUS
+eihtest                         eih                              Active
+bluegreen-ageaghan              Blue Green Project               Active
+consoleproject-thaobui          this is thao displayed name      Active
+logging                                                          Active
+mycliproject-hameed             CLI Project                      Active
+mycliproject-sparwatikar        CLI Project                      Active
+mycliproject-spulagam           CLI Project                      Active
+cliff                           Cliff's Amazing Project          Active
+consoleproject-kvemulapalli     consoleproject-kvemulapalli      Active
+mycliproject-akathiresan        CLI Project                      Active
+mycliproject-deboprasad         CLI Project                      Active
+myjbossapp-akathiresan          My JBoss Applications            Active
+myjbossapp-copadev              My JBoss Applications            Active
+myjbossapp-jzeng                My JBoss Applications            Active
+consoleproject-ravi             MySQL                            Active
+consoleproject-ymumtaz          consoleproject-ymumtaz           Active
+mycliproject-f402131            CLI Project                      Active
+mycliproject-sramakrishnan      CLI Project                      Active
+bluegreen-oslab                 Blue Green Project               Active
+consoleproject-sparwatikar      consoleproject                   Active
+my-tomcat-jzeng                                                  Active
+mycliproject-gnarayanan         CLI Project                      Active
+consoleproject-xqi                                               Active
+consoleproject-scheruvathur     template lab 5                   Active
+mycliproject-suguose            CLI Project                      Active
+myjbossapp-pvincent             My JBoss Applications            Active
+myjbossapp-scheruvathur                                          Active
+myjbossapp-svalaparla           My JBoss Applications            Active
+console-project-kjain           console project kjain            Active
+copadev                                                          Active
+default                                                          Active
+dev                                                              Active
+dev-laarani                     dev laarani                      Active
+mycliproject-cliff              Cliff's really amazing project   Active
+myguiproject-skurapati0625      GUI Project                      Active
+myjbossapp-laarani              My JBoss Applications            Active
+bluegreen-pb                    Blue Green Project               Active
+consoleproject-jzeng            jzeng console app                Active
+management-infra                                                 Active
+mycliproject-ageaghan           CLI Project                      Active
+mycliproject-f360132            CLI Project                      Active
+mycliproject-laarani            CLI Project                      Active
+mycliproject-sgupta1            CLI Project                      Active
+myjbossapp-lkoochana            My JBoss Applications            Active
+vmallireddigari                 EIH test                         Active
+test                                                             Active
+consoleproject-jjohn            consoleproject-jjohn             Active
+consoleproject-sugusose         MySQLProject                     Active
+mycliproject-dhanjal            CLI Project                      Active
+mycliproject-dmonteiro          CLI Project                      Active
+mycliproject-jjohn              CLI Project                      Active
+myjbossapp-kvemulapalli         My JBoss Applications            Active
+myjbossapp-rpetri               My JBoss Application             Active
+billtest                                                         Active
+consoleproject-gnarayanan       PHP                              Active
+mycliproject-kdhanjal           CLI Project                      Active
+myjbossapp-prashanthimargam     My JBoss Applications            Active
+myjbossapp-smahanti             My Hboss Applications            Active
+myjbossapp-thaobui              My JBoss Applications            Active
+firstproj                       First Project                    Active
+lab0                                                             Active
+myapp-surekha1                  CLI Project                      Active
+mycliproject-laarani1           CLI Project                      Active
+mycliproject-kjain              CLI Project                      Active
+consoleproject-anair            console project                  Active
+consoleproject-copa                                              Active
+consoleproject-debo             oseproject-consoleproj           Active
+consoleproject-lkoochana                                         Active
+mycliproject-sgupta             CLI Project                      Active
+vjawanda                        vjawanda                         Active
+mycliproject-kbojji             CLI Project                      Active
+mycliproject-kdhanjal1          CLI Project                      Active
+mycliproject-whuang             CLI project                      Active
+myjbossapp-f401325              My JBoss Applications            Active
+myjbossapp-rpuligari            My JBoss Applications            Active
+cpatest                         test123                          Active
+kube-system                                                      Active
+mycliproject-adonate            CLI Project                      Active
+mycliproject-ravi               CLI Project                      Active
+myjbossapp-f369719              My JBoss Applications            Active
+second                                                           Active
+bluegreen-sugusose              Blue Green Project               Active
+consoleproject-spulagam         spulagam                         Active
+mycliproject-npakalapati        CLI Project                      Active
+mycliproject-rpuligari          CLI Project                      Active
+myjbossapp-gnarayanan           My JBoss Applications            Active
+myjbossapp-kbojji               My JBoss Applications            Active
+bluegreen-rpetri                Blue Green Project               Active
+mycliproject-pdevalapally       CLI Project                      Active
+mycliproject-ymumtaz            CLI Project                      Active
+bluegreen-gnarayanan            Blue Green Project               Active
+mycliproject-dnarang            CLI Project                      Active
+mycliproject-f369719            CLI Project                      Active
+mycliproject-rpetri             CLI Project                      Active
+myjbossapp-cberg                My JBoss Applications            Active
+myjbossapp-dmonteiro            My JBoss Applications            Active
+myjbossapp123-pdevalapally      My JBOss                         Active
+bindep-kjain                    Binary Deployment                Active
+myjbossapp-ageaghan             My JBoss Applications            Active
+myjbossapp-anair                My JBoss Applications            Active
+myjbossapp-ymumtaz              My JBoss Appliation              Active
+consoleproject-skurapati0625    PHP - MySQL                      Active
+mycliproject-prashanthimargam   CLI Project                      Active
+mycliproject-xqi                CLI Project                      Active
+myjbossapp-npakalapati          My JBoss Applications            Active
+myjbossapp-pdevalapally         My JBoss Applications            Active
+myjbossapp-ravi                 My JBoss Applications            Active
+myjbossapp-wtjahjana            My JBoss Applications            Active
+consoleproject-f369719          MSSQL Project                    Active
+mycliproject-jzeng              CLI Project                      Active
+mycliproject-skurapati0625      CLI Project                      Active
+mycliproject-wtjahjana          CLI Project                      Active
+myjbossapp-deboprasad           My JBoss Applications            Active
+myjbossapp-hameed               My JBoss Applications            Active
+myjbossapp-sugusose             My JBoss Applications            Active
+dhanjal                         Kuldip                           Active
+mycliproject-anair              CLI Project                      Active
+mycliproject-sugusose           CLI Project                      Active
+openshift                                                        Active
+consoleproject-ageaghan         displayname-ageahan              Active
+consoleproject-hameed           consoleproject                   Active
+consoleproject-pvincent         consoleproject-pvincent          Active
+mycliproject-svalaparla         CLI Project                      Active
+myjbossapp1-pdevalapally        My JBoss Applications            Active
+scm-web-hooks-laarani           Test WebHooks                    Active
+bluegreen-npakalapati           Blue Green Project               Active
+myapp-surekham1                 CLI Project                      Active
+mycliproject-kvemulapalli       CLI Project                      Active
+mycliproject-lkoochana          CLI Project                      Active
+mycliproject-pvincent           CLI Project                      Active
+mycliproject-sbhosale           CLI Project                      Active
+repo                                                             Active
+bluegreen-laarani               Blue Green Project               Active
+consoleproject-surekha          consoleproject                   Active
+consoleproject-wtjahjana        Using Template Project           Active
+myjbossapp-billtest             My JBoss Applications            Active
+myjbossapp-sparwatikar          My JBoss Applications            Active
+test-laarani                    test laarani                     Active
+myjbossapp-jjohn                My JBoss Applications            Active
+bluegreen-deboprasad            Blue Green Project               Active
+consoleproject-pdevalapally                                      Active
+consoleproject-sr               Saro project                     Active
+mycliproject-pb                 CLI Project                      Active
+myjbossapp-spulagam             My JBoss Applications            Active
+myjbossapp-whuang               My JBoss Applications            Active
+project-name-1                                                   Active
+bluegreen-kjain                 Blue Gree Project                Active
+consoleproject-akathiresan      Console Project                  Active
+consoleproject-kbojji           consoleproject                   Active
+mycliproject-chengwang          CLI Project                      Active
+myjbossapp-skurapati0625        My JBoss Applications            Active
+consoleproject-svalaparla       Console-Project                  Active
+consoleproject-rpetri           ConsoleProject                   Active
+myjbossapp-chengwang            My JBoss Applications            Active
+myjbossapp-kjain                KJain JBOSS App                  Active
+consoleproject-rpuligari                                         Active
+consoleproject-username         Myconsoleproject-userName        Active
+consoleproject-whuang           consoleproject-whuang            Active
+mycliproject-thaobui            CLI Project                      Active
+openshift-infra                                                  Active
