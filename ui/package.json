@@ -21,8 +21,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "./node_modules/.bin/webpack-dev-server --port=8081 --content-base src --host 0.0.0.0 --inline --hot",
-    "dev": "./node_modules/.bin/webpack-dev-server --port=8081 --content-base src --host 0.0.0.0 --inline --hot",
+    "start": "./node_modules/.bin/webpack-dev-server --port=8080 --content-base src --host 0.0.0.0 --inline --hot",
+    "dev": "./node_modules/.bin/webpack-dev-server --port=8080 --content-base src --host 0.0.0.0 --inline --hot",
     "test": ""
   },
   "author": "",
