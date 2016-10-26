@@ -13,7 +13,6 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 axios.defaults.baseURL = 'https://'+process.env.base_url;
 axios.defaults.responseType = 'json';
 axios.defaults.headers.common['Authorization'] = "Bearer "+ process.env.token;
-
 console.log(axios.defaults.baseURL);
 
 var labs =[
@@ -21,13 +20,15 @@ var labs =[
 ];
 
 app.use(cors());
+var router = express.Router();  
+app.use('/api', router);
 
-app.get('/', function(req, res) {
+router.get('/', function(req, res) {
     res.send('');
 });
 
 
-app.get('/getuserscore', function(req, res) {
+router.get('/getuserscore', function(req, res) {
     axios.get("/oapi/v1/identities")
         .then((response) => {
            async.each(response.data.items, function(item, cb) {
@@ -53,7 +54,7 @@ app.get('/getuserscore', function(req, res) {
     });
 });
 
-app.get('/healthz', function(req, res) {
+router.get('/healthz', function(req, res) {
     console.log('health enquiry')
     if (healthy)
         res.send('OK');
@@ -61,7 +62,7 @@ app.get('/healthz', function(req, res) {
         res.status(404).send('NOT OK');
 });
 
-app.get('/cancer', function(req, res) {
+router.get('/cancer', function(req, res) {
     healthy = false;
     res.send('DONE');
 });
