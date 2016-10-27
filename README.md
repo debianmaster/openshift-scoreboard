@@ -2,10 +2,11 @@
 oc create serviceaccount bot -n default
 oc adm policy add-cluster-role-to-user cluster-reader system:serviceaccount:default:bot
 export token=$(oc sa get-token bot -n default)
+export base_url=10.0.0.249.xip.io  #subdomain
 oc new-project workshop
 oc new-app docker.io/debianmaster/maya-ui  --name=scoreboard
 oc new-app docker.io/debianmaster/maya-api --name=scoreboard-api
-oc env dc/maya-api token=$token base_url=ocp.ck.osecloud.com  #subdomain
+oc env dc/scoreboard-api token=$token 
 ```
 
 
