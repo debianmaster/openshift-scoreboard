@@ -6,7 +6,7 @@ export base_url=10.0.0.249.xip.io  #subdomain
 oc new-project workshop
 oc new-app docker.io/debianmaster/maya-ui  --name=scoreboard
 oc new-app docker.io/debianmaster/maya-api --name=scoreboard-api
-oc env dc/scoreboard-api token=$token 
+oc env dc/scoreboard-api token=$token base_url=$base_url
 ```
 
 
