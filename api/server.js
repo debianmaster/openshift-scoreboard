@@ -10,7 +10,7 @@ const PORT = 8080;
 var healthy = true;
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'; 
-axios.defaults.baseURL = 'https://'+process.env.base_url+":8443";
+axios.defaults.baseURL = 'https://'+process.env.base_url+":443";
 axios.defaults.responseType = 'json';
 axios.defaults.headers.common['Authorization'] = "Bearer "+ process.env.token;
 console.log(axios.defaults.baseURL);
